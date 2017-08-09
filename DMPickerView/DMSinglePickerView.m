@@ -81,34 +81,28 @@ static NSString *const kDisplayTableViewCellIdentifier = @"backTableView.cellIde
         _selectedFont = [UIFont systemFontOfSize:18.0];
         _unselectedFont = [UIFont systemFontOfSize:14.0];
         _selectedIndex = 0;
-                
-        if ([_delegate respondsToSelector:@selector(dm_didSelectRow:inSinglePickerView:)]) {
-            [_delegate dm_didSelectRow:_selectedIndex inSinglePickerView:self];
-        }
-        
-        if ([_delegate respondsToSelector:@selector(dm_rowHeightForSinglePickerView:)]) {
-            _rowHeight = [_delegate dm_rowHeightForSinglePickerView:self];
-        }else{
-            _rowHeight = 50;
-        }
-        
-        NSInteger count = self.frame.size.height/_rowHeight;
-        if (count%2 == 1) {
-            _displayNumber = count;
-        }else{
-            _displayNumber = count-1;
-        }
-        _tableHeight = _displayNumber*_rowHeight;
-        [self setupSubviewsContraints];
-        
-        [self setScrollView:_selectTableView atIndex:_selectedIndex animated:YES];
-        [self setScrollView:_backTableView atIndex:_selectedIndex animated:YES];
-        
     }
     return self;
 }
 
-
+- (void)didMoveToSuperview {
+    if ([_delegate respondsToSelector:@selector(dm_rowHeightForSinglePickerView:)]) {
+        _rowHeight = [_delegate dm_rowHeightForSinglePickerView:self];
+    }else{
+        _rowHeight = 50;
+    }
+    
+    NSInteger count = self.frame.size.height/_rowHeight;
+    if (count%2 == 1) {
+        _displayNumber = count;
+    }else{
+        _displayNumber = count-1;
+    }
+    _tableHeight = _displayNumber*_rowHeight;
+    [self setupSubviewsContraints];
+    
+    [self setScrollView:_selectTableView atIndex:_selectedIndex animated:YES];
+}
 
 
 #pragma mark-
@@ -235,7 +229,10 @@ static NSString *const kDisplayTableViewCellIdentifier = @"backTableView.cellIde
 #pragma mark-
 #pragma mark- Private Methods
 
-
+- (void)reloadData {
+    [_selectTableView reloadData];
+    [_backTableView reloadData];
+}
 
 
 #pragma mark-
@@ -277,6 +274,7 @@ static NSString *const kDisplayTableViewCellIdentifier = @"backTableView.cellIde
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex {
     _selectedIndex = selectedIndex;
+    [self setScrollView:_selectTableView atIndex:_selectedIndex animated:YES];
 }
 
 #pragma mark-

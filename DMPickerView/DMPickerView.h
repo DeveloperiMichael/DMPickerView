@@ -23,7 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic,assign) BOOL showSelectionIndicator;   // default is NO
 
-
+- (void)reloadAllComponents;
+- (void)reloadDataInComponent:(NSInteger)component;
 
 @end
 

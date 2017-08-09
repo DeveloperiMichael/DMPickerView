@@ -78,7 +78,20 @@
 #pragma mark-
 #pragma mark- Private Methods
 
+- (void)reloadAllComponents {
+    for (int i=0; i<_componentNumber; i++) {
+        DMSinglePickerView *singlePickerView = (DMSinglePickerView *)[self viewWithTag:1000+i];
+        [singlePickerView reloadData];
+        singlePickerView.selectedIndex = 0;
+    }
+}
 
+- (void)reloadDataInComponent:(NSInteger)component {
+    DMSinglePickerView *singlePickerView = (DMSinglePickerView *)[self viewWithTag:1000+component];
+    NSAssert(singlePickerView, @"未找到相应的DMSinglePickerView，请设置正确的component");
+    [singlePickerView reloadData];
+    singlePickerView.selectedIndex = 0;
+}
 
 
 #pragma mark-

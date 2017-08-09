@@ -16,9 +16,9 @@
 //@property(nonatomic,strong) DMSinglePickerView *pickerView;
 
 @property(nonatomic,strong) DMPickerView *pickerView;
-
-@property(nonatomic,strong) NSArray *dataArray;
-
+@property(nonatomic,strong) UIButton *reloadButton;
+@property(nonatomic,strong) NSMutableArray *dataArray1;
+@property(nonatomic,strong) NSMutableArray *dataArray2;
 @end
 
 @implementation ViewController
@@ -58,20 +58,20 @@
 //}
 //
 //- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-//    return self.dataArray.count;
+//    return self.dataArray1.count;
 //}
 //
 //
 //- (nullable NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-//    return self.dataArray[row];
+//    return self.dataArray1[row];
 //}
 
 //- (NSInteger)dm_numberOfRowsInsinglePickerView:(DMSinglePickerView *)pickerView {
-//    return self.dataArray.count;
+//    return self.dataArray1.count;
 //}
 //
 //- (nullable NSString *)dm_singlePickerView:(DMSinglePickerView *)pickerView titleForRow:(NSInteger)row {
-//    return self.dataArray[row];
+//    return self.dataArray1[row];
 //}
 //
 //- (CGFloat)dm_rowHeightForSinglePickerView:(DMSinglePickerView *)pickerView {
@@ -89,11 +89,26 @@
 
 // returns the # of rows in each component..
 - (NSInteger)dm_pickerView:(DMPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return self.dataArray.count;
+    return self.dataArray1.count;
 }
 
 - (nullable NSString *)dm_pickerView:(DMPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return self.dataArray[row];
+    switch (component) {
+        case 0:
+        {
+            return self.dataArray1[row];
+        }
+            break;
+        case 1:
+        {
+            return self.dataArray2[row];
+        }
+            break;
+        default:
+            return @"";
+            break;
+    }
+    
 }
 
 - (void)dm_pickerView:(DMPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
@@ -103,7 +118,12 @@
 #pragma mark-
 #pragma mark- Event response
 
-
+- (void)reloadButtonAction:(UIButton *)button {
+    NSArray *array = [NSArray arrayWithObjects:@"reloadDataInComponent",@"addObjectsFromArray",@"removeAllObjects",@"Private",@"Methods",@"component",@"array",@"row",@"#pragma mark-",@"Getters && Setters", nil];
+    [_dataArray1 removeAllObjects];
+    [_dataArray1 addObjectsFromArray:array];
+    [_pickerView reloadDataInComponent:0];
+}
 
 #pragma mark-
 #pragma mark- Private Methods
@@ -125,12 +145,30 @@
 //    return _pickerView;
 //}
 
-- (NSArray *)dataArray {
-    if (!_dataArray) {
-        _dataArray = [NSArray arrayWithObjects:@"UIPickerView",@"dataSource",@"delegate",@"brownColor",@"return",@"SetupConstraints",@"mas_makeConstraints",@"backgroundColor",@"self",@"MASConstraintMaker",@"mas_equalTo",@"Getters",@"alloc", nil];
+- (UIButton *)reloadButton {
+    if (!_reloadButton) {
+        _reloadButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _reloadButton.backgroundColor = [UIColor blueColor];
+        [_reloadButton setTitle:@"reloadData" forState:UIControlStateNormal];
+        [_reloadButton addTarget:self action:@selector(reloadButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     }
-    return _dataArray;
+    return _reloadButton;
 }
+
+- (NSMutableArray *)dataArray1 {
+    if (!_dataArray1) {
+        _dataArray1 = [NSMutableArray arrayWithObjects:@"UIPickerView",@"dataSource",@"delegate",@"brownColor",@"return",@"SetupConstraints",@"mas_makeConstraints",@"backgroundColor",@"self",@"MASConstraintMaker",@"mas_equalTo",@"Getters",@"alloc", nil];
+    }
+    return _dataArray1;
+}
+
+- (NSMutableArray *)dataArray2 {
+    if (!_dataArray2) {
+        _dataArray2 = [NSMutableArray arrayWithObjects:@"UIPickerView",@"dataSource",@"delegate",@"brownColor",@"return",@"SetupConstraints",@"mas_makeConstraints",@"backgroundColor",@"self",@"MASConstraintMaker",@"mas_equalTo",@"Getters",@"alloc", nil];
+    }
+    return _dataArray2;
+}
+
 
 - (DMPickerView *)pickerView {
     if (!_pickerView) {
@@ -148,12 +186,18 @@
 
 - (void)setupSubviewsContraints{
     [self.view addSubview:self.pickerView];
+    [self.view addSubview:self.reloadButton];
     [_pickerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(self.view);
         make.top.mas_equalTo(self.view).mas_offset(50);
         make.bottom.mas_equalTo(self.view).mas_offset(-50);
         make.left.mas_equalTo(self.view).mas_offset(80);
         make.right.mas_equalTo(self.view).mas_offset(-80);
+    }];
+    [_reloadButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(_pickerView.mas_bottom);
+        make.left.right.bottom.mas_equalTo(self.view);
+        
     }];
 }
 

@@ -22,6 +22,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithFrame:(CGRect)frame backgroundColor:(UIColor *)color;
 
+
+- (void)reloadData;
+
 @end
 
 
