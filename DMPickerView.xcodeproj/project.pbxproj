@@ -13,9 +13,15 @@
 		AB6FD7F41F3944A6003339A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB6FD7F21F3944A6003339A7 /* Main.storyboard */; };
 		AB6FD7F61F3944A6003339A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB6FD7F51F3944A6003339A7 /* Assets.xcassets */; };
 		AB6FD7F91F3944A6003339A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB6FD7F71F3944A6003339A7 /* LaunchScreen.storyboard */; };
+		AB6FD8021F3946E0003339A7 /* DMPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6FD8011F3946E0003339A7 /* DMPickerView.m */; };
+		AB6FD8051F39833B003339A7 /* DMSinglePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6FD8041F39833B003339A7 /* DMSinglePickerView.m */; };
+		F75CEB57832AFF67C8CF5E7F /* libPods-DMPickerView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6611AE2AF5D6F8CAA570BFAE /* libPods-DMPickerView.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		047167FE48D7C981BBAE40C1 /* Pods-DMPickerView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DMPickerView.release.xcconfig"; path = "Pods/Target Support Files/Pods-DMPickerView/Pods-DMPickerView.release.xcconfig"; sourceTree = "<group>"; };
+		3931D31C893F13E204EEECC3 /* Pods-DMPickerView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DMPickerView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DMPickerView/Pods-DMPickerView.debug.xcconfig"; sourceTree = "<group>"; };
+		6611AE2AF5D6F8CAA570BFAE /* libPods-DMPickerView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DMPickerView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6FD7E61F3944A6003339A7 /* DMPickerView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DMPickerView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6FD7EA1F3944A6003339A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AB6FD7EC1F3944A6003339A7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,6 +32,10 @@
 		AB6FD7F51F3944A6003339A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB6FD7F81F3944A6003339A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB6FD7FA1F3944A6003339A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB6FD8001F3946E0003339A7 /* DMPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMPickerView.h; sourceTree = "<group>"; };
+		AB6FD8011F3946E0003339A7 /* DMPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMPickerView.m; sourceTree = "<group>"; };
+		AB6FD8031F39833B003339A7 /* DMSinglePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMSinglePickerView.h; sourceTree = "<group>"; };
+		AB6FD8041F39833B003339A7 /* DMSinglePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMSinglePickerView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +43,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F75CEB57832AFF67C8CF5E7F /* libPods-DMPickerView.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B8C34C97E9D29DFC83069CB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3931D31C893F13E204EEECC3 /* Pods-DMPickerView.debug.xcconfig */,
+				047167FE48D7C981BBAE40C1 /* Pods-DMPickerView.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		54DAEBB26435F9880BBA4B7D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6611AE2AF5D6F8CAA570BFAE /* libPods-DMPickerView.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AB6FD7DD1F3944A6003339A7 = {
 			isa = PBXGroup;
 			children = (
 				AB6FD7E81F3944A6003339A7 /* DMPickerView */,
 				AB6FD7E71F3944A6003339A7 /* Products */,
+				0B8C34C97E9D29DFC83069CB /* Pods */,
+				54DAEBB26435F9880BBA4B7D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +92,10 @@
 				AB6FD7ED1F3944A6003339A7 /* AppDelegate.m */,
 				AB6FD7EF1F3944A6003339A7 /* ViewController.h */,
 				AB6FD7F01F3944A6003339A7 /* ViewController.m */,
+				AB6FD8031F39833B003339A7 /* DMSinglePickerView.h */,
+				AB6FD8041F39833B003339A7 /* DMSinglePickerView.m */,
+				AB6FD8001F3946E0003339A7 /* DMPickerView.h */,
+				AB6FD8011F3946E0003339A7 /* DMPickerView.m */,
 				AB6FD7F21F3944A6003339A7 /* Main.storyboard */,
 				AB6FD7F51F3944A6003339A7 /* Assets.xcassets */,
 				AB6FD7F71F3944A6003339A7 /* LaunchScreen.storyboard */,
@@ -86,9 +120,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AB6FD7FD1F3944A6003339A7 /* Build configuration list for PBXNativeTarget "DMPickerView" */;
 			buildPhases = (
+				627BB1292E081405FB04A872 /* [CP] Check Pods Manifest.lock */,
 				AB6FD7E21F3944A6003339A7 /* Sources */,
 				AB6FD7E31F3944A6003339A7 /* Frameworks */,
 				AB6FD7E41F3944A6003339A7 /* Resources */,
+				82746692CE4E0C6F94EFA28B /* [CP] Embed Pods Frameworks */,
+				FCCF1FCF357B084A26AA4B77 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -110,7 +147,8 @@
 				TargetAttributes = {
 					AB6FD7E51F3944A6003339A7 = {
 						CreatedOnToolsVersion = 8.3.3;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = XDK267KQ83;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -145,6 +183,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		627BB1292E081405FB04A872 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DMPickerView-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		82746692CE4E0C6F94EFA28B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DMPickerView/Pods-DMPickerView-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FCCF1FCF357B084A26AA4B77 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DMPickerView/Pods-DMPickerView-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AB6FD7E21F3944A6003339A7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -153,6 +242,8 @@
 				AB6FD7F11F3944A6003339A7 /* ViewController.m in Sources */,
 				AB6FD7EE1F3944A6003339A7 /* AppDelegate.m in Sources */,
 				AB6FD7EB1F3944A6003339A7 /* main.m in Sources */,
+				AB6FD8021F3946E0003339A7 /* DMPickerView.m in Sources */,
+				AB6FD8051F39833B003339A7 /* DMSinglePickerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,23 +363,33 @@
 		};
 		AB6FD7FE1F3944A6003339A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3931D31C893F13E204EEECC3 /* Pods-DMPickerView.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = XDK267KQ83;
 				INFOPLIST_FILE = DMPickerView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.developermichael.DMPickerView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "29ecd84c-3f95-48a3-93c4-e78021a43f29";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development *";
 			};
 			name = Debug;
 		};
 		AB6FD7FF1F3944A6003339A7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 047167FE48D7C981BBAE40C1 /* Pods-DMPickerView.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = XDK267KQ83;
 				INFOPLIST_FILE = DMPickerView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.developermichael.DMPickerView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "29ecd84c-3f95-48a3-93c4-e78021a43f29";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development *";
 			};
 			name = Release;
 		};
@@ -311,6 +412,7 @@
 				AB6FD7FF1F3944A6003339A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
